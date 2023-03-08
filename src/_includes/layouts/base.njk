@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% if title %}{{title}} - {{site.title}}{% else %}{{site.title}}{% endif %}</title>
+	<meta name="description" content="">
+	<link rel="stylesheet" href="{{ '/assets/css/style.css' | htmlBaseUrl | bust }}">
+
+</head>
+<body>
+
+<div class="max-w-screen-xl mx-auto px-5">
+	<header class="flex flex-col lg:flex-row justify-between items-center my-5">
+		<div class="flex w-full lg:w-auto items-center justify-between">
+			<a href="/" class="text-lg">
+				<span class="font-bold text-slate-800">11ty</span>
+				<span class="text-slate-500">ship</span>
+			</a>
+			<div class="block lg:hidden">
+				<button id="astronav-menu">
+					<svg fill="currentColor" class="w-4 h-4 text-gray-800" width="24" height="24" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+						<title>Menu</title>
+						<path class="astronav-toggle hidden" fill-rule="evenodd" clip-rule="evenodd" d="M18.278 16.864a1 1 0 01-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 01-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 011.414-1.414l4.829 4.828 4.828-4.828a1 1 0 111.414 1.414l-4.828 4.829 4.828 4.828z"></path>
+						<path class="astronav-toggle" fill-rule="evenodd" d="M4 5h16a1 1 0 010 2H4a1 1 0 110-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2z"></path>
+					</svg>
+				</button>
+			</div>
+		</div>
+		<nav class="astronav-toggle hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
+			<ul class="flex flex-col lg:flex-row lg:gap-3">
+				<li>
+					<a href="/blog" class="flex lg:px-3 py-2 text-gray-600 hover:text-gray-900"> Blog </a>
+				</li>
+				<li class="relative">
+					<div class="astronav-dropdown group" aria-expanded="false">
+						<button class="flex items-center gap-1 w-full lg:w-auto lg:px-3 py-2 text-gray-600 hover:text-gray-900">
+							<span>Features</span>
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-3 h-3 mt-0.5 group-open:rotate-180">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+							</svg>
+						</button>
+						<div class="dropdown-toggle hidden">
+							<div class="lg:absolute w-full lg:w-48 z-10 lg:left-0 origin-top-left">
+								<div class="px-3 lg:py-2 lg:bg-white lg:rounded-md lg:shadow lg:border flex flex-col">
+									<a href="#" class="py-1 text-gray-600 hover:text-gray-900"> Action </a>
+									<a href="#" class="py-1 text-gray-600 hover:text-gray-900"> Another action </a>
+									<a href="#" class="py-1 text-gray-600 hover:text-gray-900"> Dropdown Submenu </a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<a href="/pricing" class="flex lg:px-3 py-2 text-gray-600 hover:text-gray-900"> Pricing </a>
+				</li>
+				<li>
+					<a href="/about" class="flex lg:px-3 py-2 text-gray-600 hover:text-gray-900"> About </a>
+				</li>
+				<li>
+					<a href="/contact" class="flex lg:px-3 py-2 text-gray-600 hover:text-gray-900"> Contact </a>
+				</li>
+			</ul>
+			<div class="lg:hidden flex items-center mt-3 gap-4">
+				<a href="#" class="rounded text-center transition focus-visible:ring-2 ring-offset-2 ring-gray-200 w-full px-4 py-2 bg-gray-100 hover:bg-gray-200 border-2 border-transparent">Log in </a>
+				<a href="#" class="rounded text-center transition focus-visible:ring-2 ring-offset-2 ring-gray-200 w-full px-4 py-2 bg-black text-white hover:bg-gray-800 border-2 border-transparent">Sign up </a>
+			</div>
+		</nav>
+
+	</header>
+</div>
+
+<div class="max-w-screen-xl mx-auto px-5">
+	{% block content %}
+	
+	{% endblock %}
+</div>
+<footer class="mt-20">
+	<p class="text-center text-sm text-slate-500"> Copyright © 2023 Astroship. All rights reserved. </p>
+	<p class="text-center text-xs text-slate-500 mt-1"> Made by <a href="https://web3templates.com" target="_blank" rel="noopener" class="hover:underline"> Web3Templates </a>
+	</p>
+</footer>
+
+<script src="{%BASE_URL%}/assets/js/script.js?v={%VERSION%}"></script>
+
+<script>
+	// Add Your tracking script here!
+	// FakeTracker
+	window.analytics = {
+		track: function(event, page) {
+			console.log('FakeTracker:', event, page)
+		}
+	}
+	// EndFakeTracker
+</script>
+{% block tracking %}
+
+{% endblock %}
+
+</body>
+</html>

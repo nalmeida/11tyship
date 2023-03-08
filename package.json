@@ -1,0 +1,24 @@
+{
+  "name": "11tyship",
+  "version": "1.0.0",
+  "license": "CC-BY-3.0",
+  "private": false,
+  "author": {
+    "name": "Nicholas Almeida",
+    "url": "https://github.com/nalmeida"
+  },
+  "scripts": {
+    "build:11ty": "eleventy",
+    "build:css": "tailwindcss -i ./src/assets/css/style.css -o ./_site/assets/css/style.css",
+    "build": "run-s build:*",
+    "dev:11ty": "eleventy --serve",
+    "dev:css": "tailwindcss -i ./src/assets/css/style.css -o ./_site/assets/css/style.css --watch",
+    "dev": "npm-run-all -p dev:*"
+
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.0",
+    "npm-run-all": "^4.1.5",
+    "tailwindcss": "^3.2.7"
+  }
+}

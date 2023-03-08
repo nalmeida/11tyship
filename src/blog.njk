@@ -1,0 +1,27 @@
+---
+title: Blog
+date: Last Modified
+
+---
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+	<main class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
+		<div>
+			<h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">{{title}}</h1>
+			<div class="text-lg mt-4 text-slate-600 max-w-xl">
+				<ul  class="list-disc">
+					{%- for post in collections.posts | reverse %}
+						<li class=" ml-8"><a href="{{ post.url | htmlBaseUrl }}">{{ post.data.title }}</a> - <small class="text-xs">{{post.date | dateToISO}}</small></li>
+					{%- endfor %}
+				</ul>
+			</div>
+		</div>
+	</main>
+{% endblock %}
+
+{% block tracking %}
+<script>
+	window.analytics.track('page_viewed', 'home');
+</script>
+{% endblock %}
